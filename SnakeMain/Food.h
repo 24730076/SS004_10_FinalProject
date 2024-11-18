@@ -4,6 +4,7 @@
 #include <utility>
 #include <cstdlib>
 #include <ctime>
+#include <vector>
 
 class Food {
 private:
@@ -13,7 +14,7 @@ private:
 public:
     Food(int gameWidth, int gameHeight);
 
-    void GenerateNewPosition();
+    void GenerateNewPosition(const std::vector<std::pair<int, int>>& snakeBody);
 
     std::pair<int, int> GetPosition() const;
 };

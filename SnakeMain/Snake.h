@@ -24,6 +24,7 @@ public:
     void Grow();
     bool CheckCollision(int maxWidth, int maxHeight);
     void SetDirection(Direction newDirection);
+	Direction GetDirection() const;
     std::pair<int, int> GetHeadPosition() const;
     const std::vector<std::pair<int, int>>& GetBody() const;
 };

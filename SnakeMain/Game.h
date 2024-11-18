@@ -5,7 +5,8 @@
 #include "Snake.h"
 #include "Food.h"
 #include <iostream>
-#include <conio.h> // Cho _kbhit() và _getch()
+#include <conio.h>
+#include <windows.h>
 
 class Game {
 private:
@@ -14,7 +15,9 @@ private:
     int width, height;
     int score;
     bool isRunning;
-
+    std::pair<int, int> lastTail;
+    bool isFast;
+    bool isPaused;
 public:
     Game(int gameWidth, int gameHeight);
     void Init();
@@ -22,6 +25,9 @@ public:
     void Render();
     void Run();
     void ProcessInput();
+    void ShowMenu();
+    void ViewScore();
 };
 
+void GotoXY(int x, int y);
 #endif // GAME_H
