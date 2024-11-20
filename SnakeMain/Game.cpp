@@ -19,11 +19,35 @@ void Game::ShowMenu() {
 }
 
 void Game::ViewScore() {
-    
+    system("cls");
+    std::cout << "Current Score: " << score << "\n";
+    system("pause");
 }
 
 void Game::Init() {
-   
+    system("cls");
+    score = 0;
+    isRunning = true;
+
+    system("cls");
+
+    for (int x = 0; x < width + 2; ++x) {
+        std::cout << "#";
+    }
+    std::cout << "\n";
+
+    for (int y = 0; y < height; ++y) {
+        std::cout << "#";
+        for (int x = 0; x < width; ++x) {
+            std::cout << " "; 
+        }
+        std::cout << "#\n"; 
+    }
+
+    for (int x = 0; x < width + 2; ++x) {
+        std::cout << "#";
+    }
+    std::cout << "\n";
 }
 
 void Game::Update() {
