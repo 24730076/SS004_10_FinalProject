@@ -28,7 +28,15 @@ isGrowing = true;
 }
 
 bool Snake::CheckCollision(int maxWidth, int maxHeight) {
-	
+	int headX = body[0].first;
+	int headY = body[0].second;
+
+	if (headX < 0 || headX >= maxWidth || headY < 0 || headY >= maxHeight) return true;
+
+	for (size_t i = 1; i < body.size(); ++i) {
+		if (body[i] == body[0]) return true;
+	}
+	return false;
 }
 
 void Snake::SetDirection(Direction newDirection) {
