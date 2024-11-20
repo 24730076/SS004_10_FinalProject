@@ -89,7 +89,26 @@ void Game::Render() {
 }
 
 void Game::Run() {
-   
+    Init();
+
+    while (isRunning) {
+        ProcessInput();
+        Update();
+        Render();
+        int snakeLength = snake.GetBody().size();
+        int sleepDuration = max(50, 1000 - (snakeLength * 10));
+
+        if (isFast) {
+            Sleep(sleepDuration / 10);
+            isFast = false;
+        }
+        else {
+            Sleep(sleepDuration);
+        }
+    }
+
+    GotoXY(0, height + 5);
+    std::cout << "Game Over! Your Score: " << score << "\n";
 }
 
 void Game::ProcessInput() {
