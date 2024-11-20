@@ -12,6 +12,13 @@ void Food::GenerateNewPosition(const std::vector<std::pair<int, int>>& snakeBody
         isOnSnake = false;
         x = rand() % width;
         y = rand() % height;
+        for (const auto& segment : snakeBody) {
+            if (segment.first == x && segment.second == y) {
+                isOnSnake = true;
+                break;  
+                }
+        }
+    } while (isOnSnake);
 }
 
 std::pair<int, int> Food::GetPosition() const {
