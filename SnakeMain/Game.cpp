@@ -112,5 +112,50 @@ void Game::Run() {
 }
 
 void Game::ProcessInput() {
-    
+    if (_kbhit()) {
+        char input = _getch();
+        switch (input) {
+        case 'w':
+            if (snake.GetDirection() == UP) {
+                isFast = true;
+            }
+            else {
+                snake.SetDirection(UP);
+                isFast = false;
+            }
+            break;
+        case 's':
+            if (snake.GetDirection() == DOWN) {
+                isFast = true;
+            }
+            else {
+                snake.SetDirection(DOWN);
+                isFast = false;
+            }
+            break;
+        case 'a':
+            if (snake.GetDirection() == LEFT) {
+                isFast = true;
+            }
+            else {
+                snake.SetDirection(LEFT);
+                isFast = false;
+            }
+            break;
+        case 'd':
+            if (snake.GetDirection() == RIGHT) {
+                isFast = true;
+            }
+            else {
+                snake.SetDirection(RIGHT);
+                isFast = false;
+            }
+            break;
+        case 27:
+            isPaused = true;
+            isRunning = false;
+            break;
+        }
+
+    }
 }
