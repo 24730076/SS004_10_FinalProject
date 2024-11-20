@@ -20,6 +20,13 @@ private:
 
 public:
     Snake(int startX, int startY);
+    void Move();
+    void Grow();
+    bool CheckCollision(int maxWidth, int maxHeight);
+    void SetDirection(Direction newDirection);
+	Direction GetDirection() const;
+    std::pair<int, int> GetHeadPosition() const;
+    const std::vector<std::pair<int, int>>& GetBody() const;
 };
 
 #endif // SNAKE_H
