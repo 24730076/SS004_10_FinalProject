@@ -6,7 +6,21 @@ Snake::Snake(int startX, int startY) : direction(RIGHT), isGrowing(false) {
 }
 
 void Snake::Move() {
-	
+	int headX = body[0].first;
+	int headY = body[0].second;
+
+	switch (direction) {
+	case UP:    headY--; break;
+	case DOWN:  headY++; break;
+	case LEFT:  headX--; break;
+	case RIGHT: headX++; break;
+	}
+
+	body.insert(body.begin(), { headX, headY });
+	if (!isGrowing) {
+		body.pop_back();
+	}
+	isGrowing = false;	
 }
 
 void Snake::Grow() {
