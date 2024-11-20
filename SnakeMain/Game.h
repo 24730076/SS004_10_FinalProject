@@ -20,6 +20,13 @@ private:
     bool isPaused;
 public:
     Game(int gameWidth, int gameHeight);
+    void Init();
+    void Update();
+    void Render();
+    void Run();
+    void ProcessInput();
+    void ShowMenu();
+    void ViewScore();
 };
 
 void GotoXY(int x, int y);
