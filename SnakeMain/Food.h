@@ -1,4 +1,4 @@
-﻿#ifndef FOOD_H
+﻿﻿#ifndef FOOD_H
 #define FOOD_H
 
 #include <utility>
@@ -13,6 +13,10 @@ private:
 
 public:
     Food(int gameWidth, int gameHeight);
+
+    void GenerateNewPosition(const std::vector<std::pair<int, int>>& snakeBody);
+
+    std::pair<int, int> GetPosition() const;
 };
 
 #endif
