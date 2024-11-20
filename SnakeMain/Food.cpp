@@ -1,4 +1,4 @@
-﻿﻿#include "Food.h"
+﻿#include "Food.h"
 
 Food::Food(int gameWidth, int gameHeight) : width(gameWidth), height(gameHeight) {
     srand(static_cast<unsigned>(time(0)));
@@ -15,8 +15,8 @@ void Food::GenerateNewPosition(const std::vector<std::pair<int, int>>& snakeBody
         for (const auto& segment : snakeBody) {
             if (segment.first == x && segment.second == y) {
                 isOnSnake = true;
-                break;  
-                }
+                break;
+            }
         }
     } while (isOnSnake);
 }

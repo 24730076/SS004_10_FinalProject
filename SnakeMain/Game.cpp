@@ -1,4 +1,4 @@
-﻿﻿#pragma once
+﻿#pragma once
 #include "Game.h"
 #include <windows.h>
 #include <algorithm>
@@ -16,41 +16,41 @@ Game::Game(int gameWidth, int gameHeight)
 
 void Game::ShowMenu() {
     int choice;
-do {
-    system("cls");
-    std::cout << "1. New Game\n";
-    std::cout << "2. Resume\n";
-    std::cout << "3. View Score\n";
-    std::cout << "4. Exit\n";
-    std::cout << "Enter your choice: ";
-    std::cin >> choice;
-    
-    switch (choice) {
-    case 1:
-        Init();
-        Run();
-        break;
-    case 2:
-        if (isPaused) {
-            isRunning = true;
+    do {
+        system("cls");
+        std::cout << "1. New Game\n";
+        std::cout << "2. Resume\n";
+        std::cout << "3. View Score\n";
+        std::cout << "4. Exit\n";
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+
+        switch (choice) {
+        case 1:
+            Init();
             Run();
-        }
-        else {
-            std::cout << "No game to resume.\n";
+            break;
+        case 2:
+            if (isPaused) {
+                isRunning = true;
+                Run();
+            }
+            else {
+                std::cout << "No game to resume.\n";
+                system("pause");
+            }
+            break;
+        case 3:
+            ViewScore();
+            break;
+        case 4:
+            isRunning = false;
+            break;
+        default:
+            std::cout << "Invalid choice. Please try again.\n";
             system("pause");
         }
-        break;
-    case 3:
-        ViewScore();
-        break;
-    case 4:
-        isRunning = false;
-        break;
-    default:
-        std::cout << "Invalid choice. Please try again.\n";
-        system("pause");
-    }
-} while (choice != 4);
+    } while (choice != 4);
 }
 
 void Game::ViewScore() {
@@ -74,9 +74,9 @@ void Game::Init() {
     for (int y = 0; y < height; ++y) {
         std::cout << "#";
         for (int x = 0; x < width; ++x) {
-            std::cout << " "; 
+            std::cout << " ";
         }
-        std::cout << "#\n"; 
+        std::cout << "#\n";
     }
 
     for (int x = 0; x < width + 2; ++x) {
