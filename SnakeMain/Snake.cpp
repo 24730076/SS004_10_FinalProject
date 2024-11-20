@@ -40,7 +40,21 @@ bool Snake::CheckCollision(int maxWidth, int maxHeight) {
 }
 
 void Snake::SetDirection(Direction newDirection) {
-	
+		if ((direction == UP && newDirection == DOWN) ||
+		(direction == DOWN && newDirection == UP) ||
+		(direction == LEFT && newDirection == RIGHT) ||
+		(direction == RIGHT && newDirection == LEFT)) {
+		return;
+	}
+	direction = newDirection;
+}
+
+Direction Snake::GetDirection() const {
+	return direction;
+}
+
+std::pair<int, int> Snake::GetHeadPosition() const {
+	return body[0];
 }
 
 Direction Snake::GetDirection() const {
