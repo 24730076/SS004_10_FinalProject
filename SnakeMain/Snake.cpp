@@ -24,7 +24,7 @@ void Snake::Move() {
 }
 
 void Snake::Grow() {
-	
+isGrowing = true;	
 }
 
 bool Snake::CheckCollision(int maxWidth, int maxHeight) {
